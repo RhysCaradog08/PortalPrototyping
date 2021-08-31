@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class PortalTextureSetUp : MonoBehaviour
 {
+    [Header("Yellow")]
+    public Camera yellowCam;
+    public Material yellowCamMat;
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(yellowCam.targetTexture != null)
+        {
+            yellowCam.targetTexture.Release();
+        }
+        yellowCam.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        yellowCamMat.mainTexture = yellowCam.targetTexture;
     }
 }
