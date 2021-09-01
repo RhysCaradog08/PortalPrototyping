@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PortalCamera : MonoBehaviour
 {
-    public Transform playerCamera;
+    [SerializeField] Transform playerCamera;
     public Transform portal;
     public Transform otherPortal;
 
-    Vector3 yOffset;
+    private void Awake()
+    {
+        playerCamera = Camera.main.transform;
+    }
 
     // Update is called once per frame
     void LateUpdate()
