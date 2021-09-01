@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class PortalTextureSetUp : MonoBehaviour
 {
-    [Header("White")]
-    public Camera whiteCam;
-    public Material whiteCamMat;
+    [Header("Cam_A")]
+    public Camera cam_A;
+    public Material cam_A_Mat;
 
-    [Header("Yellow")]
-    public Camera yellowCam;
-    public Material yellowCamMat;
+    [Header("Cam_B")]
+    public Camera cam_B;
+    public Material cam_B_Mat;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (whiteCam.targetTexture != null)
+        if (cam_A.targetTexture != null)
         {
-            whiteCam.targetTexture.Release();
+            cam_A.targetTexture.Release();
         }
-        whiteCam.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
-        whiteCamMat.mainTexture = whiteCam.targetTexture;
+        cam_A.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        cam_A_Mat.mainTexture = cam_A.targetTexture;
 
-        if (yellowCam.targetTexture != null)
+        if (cam_B.targetTexture != null)
         {
-            yellowCam.targetTexture.Release();
+            cam_B.targetTexture.Release();
         }
-        yellowCam.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
-        yellowCamMat.mainTexture = yellowCam.targetTexture;
+        cam_B.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        cam_B_Mat.mainTexture = cam_B.targetTexture;
     }
 }
